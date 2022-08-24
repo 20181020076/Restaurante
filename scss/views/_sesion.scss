@@ -1,0 +1,18 @@
+.inicio{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    &__title{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    &__user{
+
+    }
+    &__password{
+        margin-bottom: 20px;
+    }
+}
