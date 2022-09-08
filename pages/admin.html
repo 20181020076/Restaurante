@@ -4,12 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilos.css">
     <title>Document</title>
 </head>
 <body>
     <main>
-        <h1>entraste como admin</h1>
-        <button onclick="cerrar()">Cerrar sesion</button>
+        <div class="aplicacion">
+            <div class="aplicacion__titulo">
+                <h1 id="titulo">admin</h1>
+            </div>
+            <div class="aplicacion__codigo">
+                <h2>Codigo :</h2>
+                <input type="number">
+                <button>Agregar</button>
+
+            </div>
+            <div class="aplicacion__panel">
+                <div class="aplicacion__panel__lista" id="aplicacion__panel__lista">
+                    
+                </div>
+                <div class="aplicacion__panel__botones">
+                    <button>-</button>
+                    <button> - all</button>
+                    <button onclick="inventario()">inventario</button>
+                </div>
+            </div>
+            <div class="aplicacion__boton">
+                <button>Imprimir</button>
+            </div>
+            <div class="aplicacion__cerrar">
+                <button onclick="cerrar()">Cerrar sesion</button>
+            </div>
+            
+
+        </div>
     </main>
     <script src="/js/app.js"></script>
 </body>

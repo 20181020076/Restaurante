@@ -1,10 +1,14 @@
 let usuarios=[{u:"ramon",p:"1234",e:"admin"},{u:"empleado1",p:"456",e:"empleado"}];
-
+let productos=[{nombre:"empanada",precio:2000},{nombre:"pastel",precio:2500}];
 let nombres = usuarios.map(function(user){
     return user.u;
 });
 
-console.log(nombres);
+panel = document.getElementById("aplicacion__panel__lista");
+
+
+// console.log(nombres);
+// console.log(productos);
 
 function validar(){
     let user_digitado = document.getElementById("user").value;
@@ -33,6 +37,13 @@ function validar(){
     
     
 
+}
+
+function inventario(){
+    panel.innerHTML = null;
+    productos.forEach((producto)=>{
+        panel.innerHTML += `<div class="aplicacion__panel__lista__item">${producto.nombre}, ${producto.precio}</div>`
+    });
 }
 
 function cerrar(){
