@@ -40,12 +40,14 @@ function validar(){
 }
 
 function inventario(){
-    panel.innerHTML = null;
+    panel.innerHTML = `<div class="aplicacion__panel__lista></div>`;
     productos.forEach((producto)=>{
         panel.innerHTML += `<div class="aplicacion__panel__lista__item">${producto.nombre}, ${producto.precio}</div>`
     });
 }
-
+function limpiar(){
+    panel.innerHTML = `<div class="aplicacion__panel__lista></div>`;
+}
 function cerrar(){
     window.location.replace("/index.html");
 }

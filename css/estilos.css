@@ -17,7 +17,7 @@
     margin-bottom: 20px; }
 
 .aplicacion {
-  border: 1px solid red; }
+  outline: 1px solid red; }
   .aplicacion__titulo {
     font-size: 25px;
     color: red; }
@@ -29,19 +29,24 @@
       background-color: gray; }
   .aplicacion__panel {
     display: flex;
-    border: 1px solid purple; }
+    outline: 1px solid purple; }
     .aplicacion__panel__lista {
       height: 200px;
       width: 80%;
-      border: 1px solid pink; }
+      outline: 1px solid pink; }
     .aplicacion__panel__botones {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      width: 20%;
       justify-content: space-around; }
-      .aplicacion__panel__botones button {
+      .aplicacion__panel__botones__menos {
         width: 100%; }
+      .aplicacion__panel__botones__delete {
+        width: 100%; }
+      .aplicacion__panel__botones__inventario {
+        width: 100%; }
+      .aplicacion__panel__botones button {
+        width: 90%; }
   .aplicacion__boton {
     display: flex;
     justify-content: center; }
