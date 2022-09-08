@@ -26,14 +26,16 @@
     font-size: 19px;
     justify-content: space-around; }
     .aplicacion__codigo input {
-      background-color: gray; }
+      background-color: gray;
+      padding: 10px; }
   .aplicacion__panel {
     display: flex;
     outline: 1px solid purple; }
     .aplicacion__panel__lista {
       height: 200px;
       width: 80%;
-      outline: 1px solid pink; }
+      outline: 1px solid pink;
+      overflow-y: scroll; }
     .aplicacion__panel__botones {
       display: flex;
       flex-direction: column;

@@ -11,13 +11,13 @@
     <main>
         <div class="aplicacion">
             <div class="aplicacion__titulo">
-                <h1 id="titulo">admin</h1>
+                <h1 id="titulo">Admin</h1>
             </div>
             <div class="aplicacion__codigo">
                 <h2>Codigo :</h2>
-                <input type="number">
-                <button>Agregar</button>
-
+                <input type="number" id="codigo">
+                <button onclick="agregar()">Agregar</button>
+        
             </div>
             <div class="aplicacion__panel">
                 <div class="aplicacion__panel__lista" id="aplicacion__panel__lista">
@@ -27,21 +27,22 @@
                     <div class="aplicacion__panel__botones__menos"><button>-</button></div>
                     <div class="aplicacion__panel__botones__delete"><button onclick="limpiar()"> - all</button></div>
                     <div class="aplicacion__panel__botones__inventario"><button onclick="inventario()">inventario</button></div>
-                    
+                    <div class="aplicacion__panel__botones__registros"><button onclick="registros()">registros</button></div>
                     
                     
                 </div>
             </div>
             <div class="aplicacion__boton">
-                <button>Imprimir</button>
+                <button onclick="imprimir()">Imprimir</button>
             </div>
             <div class="aplicacion__cerrar">
                 <button onclick="cerrar()">Cerrar sesion</button>
             </div>
             
-
+        
         </div>
     </main>
     <script src="/js/app.js"></script>
 </body>
 </html>
+
