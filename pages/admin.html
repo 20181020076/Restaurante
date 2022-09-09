@@ -16,7 +16,7 @@
             <div class="aplicacion__codigo">
                 <h2>Codigo :</h2>
                 <input type="number" id="codigo">
-                <button onclick="agregar()">Agregar</button>
+                <button id="boton__agregar">Agregar</button>
         
             </div>
             <div class="aplicacion__panel">
@@ -24,25 +24,29 @@
                     
                 </div>
                 <div class="aplicacion__panel__botones">
-                    <div class="aplicacion__panel__botones__menos"><button>-</button></div>
-                    <div class="aplicacion__panel__botones__delete"><button onclick="limpiar()"> - all</button></div>
-                    <div class="aplicacion__panel__botones__inventario"><button onclick="inventario()">inventario</button></div>
-                    <div class="aplicacion__panel__botones__registros"><button onclick="registros()">registros</button></div>
+                    <div class="aplicacion__panel__botones__menos"><button id="boton__menos">-</button></div>
+                    <div class="aplicacion__panel__botones__delete"><button id="boton__limpiar"> borrar todo</button></div>
+                    <div class="aplicacion__panel__botones__inventario" id="boton__inventario"><button>inventario</button></div>
+                    <div class="aplicacion__panel__botones__registros" id="boton__registros"><button>registros</button></div>
                     
                     
                 </div>
             </div>
             <div class="aplicacion__boton">
-                <button onclick="imprimir()">Imprimir</button>
+                <button id="boton__imprimir">Imprimir</button>
+            </div>
+            <div class="aplicacion__total" id="aplicacion__total">
+                0
             </div>
             <div class="aplicacion__cerrar">
-                <button onclick="cerrar()">Cerrar sesion</button>
+                <button id="boton__cerrar">Cerrar sesion</button>
             </div>
             
         
         </div>
     </main>
     <script src="/js/app.js"></script>
+    <script src="/js/appAdmin.js"></script>
 </body>
 </html>
 

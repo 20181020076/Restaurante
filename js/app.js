@@ -1,47 +1,37 @@
+//arreglos
 let usuarios=[{u:"ramon",p:"1234",e:"admin"},{u:"empleado1",p:"456",e:"empleado"}];
 let productos=[{nombre:"empanada",precio:2000,codigo:1},{nombre:"pastel",precio:2500,codigo:2}];
 let carrito = [];
 let nombres = usuarios.map(function(user){
     return user.u;
 });
+let nombresProductos = productos.map((producto)=>{return producto.nombre});
+//botones
 
-panel = document.getElementById("aplicacion__panel__lista");
+let botonAgregar = document.getElementById("boton__agregar");
+let botonMenos = document.getElementById("boton__menos");
+let botonLimpiar = document.getElementById("boton__limpiar");
+let botonInventario = document.getElementById("boton__inventario");
+let botonRegistros = document.getElementById("boton__registros");
+let botonImprimir = document.getElementById("boton__imprimir");
+let botonCerrar = document.getElementById("boton__cerrar");
+//elementos
+let panel = document.getElementById("aplicacion__panel__lista");
+let pantallaTotal = document.getElementById("aplicacion__total");
 
 
-// console.log(nombres);
-// console.log(productos);
+//eventos de escucha
 
-function validar(){
-    let user_digitado = document.getElementById("user").value;
-    let password_digitado = document.getElementById("password").value;
-    let estado = true;
-    let contador = 0;
-    for(let i = 0; i<usuarios.length; i++){
-        if(usuarios[i].u == user_digitado){
-            if(usuarios[i].p == password_digitado){
-                if(usuarios[i].e == "admin"){
-                    window.location.replace("/pages/admin.html");
-                }else{
-                    window.location.replace("/pages/empleado.html");
-                }
-                
-            }else{
-                estado = false;
-            }
-        }else{
-            contador++;
-        }
-    }
-    if(estado==false || contador == usuarios.length){
-        alert("corrija el usuario o la contraseña");
-    }
-    
-    
+botonAgregar.addEventListener("click",agregar);
+botonMenos.addEventListener("click",menos);
+botonLimpiar.addEventListener("click",limpiarPanel);
+botonImprimir.addEventListener("click",imprimir);
+botonCerrar.addEventListener("click",cerrar);
+//funciones
 
-}
+
 function agregar(){
-    referencia = document.getElementById("codigo");
-    console.log(referencia);
+    let referencia = document.getElementById("codigo");
     productos.forEach((producto)=>{
         if (referencia.value==producto.codigo){
             carrito.push(producto)
@@ -49,21 +39,27 @@ function agregar(){
         }
     });
 }
-
-function inventario(){
-    carrito = [];
-    panel.innerHTML = `<div class="aplicacion__panel__lista></div>`;
-    productos.forEach((producto)=>{
-        panel.innerHTML += `<div class="aplicacion__panel__lista__item">${producto.nombre}, ${producto.precio}</div>`
-    });
+function menos(){
+    console.log("")
 }
-function limpiar(){
+
+
+function limpiarPanel(){
     carrito = [];
     panel.innerHTML = `<div class="aplicacion__panel__lista></div>`;
+    limpiarCampos();
 }
 function imprimir(){
-    console.log(carrito);
+    let total = carrito.reduce((acc,producto)=>{
+        return acc = acc + producto.precio;
+    },0);
+    pantallaTotal.innerHTML = total; 
 }
 function cerrar(){
     window.location.replace("/index.html");
+}
+function limpiarCampos(){
+    document.getElementById("codigo").value = 1;
+    pantallaTotal.innerHTML = 0;
+
 }

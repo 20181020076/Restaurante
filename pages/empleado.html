@@ -11,38 +11,37 @@
     <main>
         <div class="aplicacion">
             <div class="aplicacion__titulo">
-                <h1 id="titulo">empleado</h1>
+                <h1 id="titulo">Empleado</h1>
             </div>
             <div class="aplicacion__codigo">
                 <h2>Codigo :</h2>
                 <input type="number" id="codigo">
-                <button onclick="agregar()">Agregar</button>
-
+                <button id="boton__agregar">Agregar</button>
+        
             </div>
             <div class="aplicacion__panel">
                 <div class="aplicacion__panel__lista" id="aplicacion__panel__lista">
                     
                 </div>
                 <div class="aplicacion__panel__botones">
-                    <div class="aplicacion__panel__botones__menos"><button>-</button></div>
-                    <div class="aplicacion__panel__botones__delete"><button onclick="limpiar()"> - all</button></div>
-                    
+                    <div class="aplicacion__panel__botones__menos"><button id="boton__menos">-</button></div>
+                    <div class="aplicacion__panel__botones__delete"><button id="boton__limpiar"> borrar todo</button></div>
                     
                     
                 </div>
             </div>
             <div class="aplicacion__boton">
-                <button onclick="imprimir()">Imprimir</button>
+                <button id="boton__imprimir">Imprimir</button>
+            </div>
+            <div class="aplicacion__total" id="aplicacion__total">0
             </div>
             <div class="aplicacion__cerrar">
-                <button onclick="cerrar()">Cerrar sesion</button>
+                <button id="boton__cerrar">Cerrar sesion</button>
             </div>
             
-
+        
         </div>
-        <h1>entraste como empleado</h1>
-        <button onclick="cerrar()">Cerrar sesion</button>
     </main>
-    <script src="../js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>
