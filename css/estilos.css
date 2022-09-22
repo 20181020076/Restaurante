@@ -32,6 +32,8 @@
     display: flex;
     outline: 1px solid purple; }
     .aplicacion__panel__lista {
+      display: flex;
+      flex-direction: column;
       height: 200px;
       width: 80%;
       outline: 1px solid pink;
@@ -55,3 +57,8 @@
   .aplicacion__cerrar {
     display: flex;
     justify-content: end; }
+
+.cart {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red; }

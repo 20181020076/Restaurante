@@ -16,7 +16,7 @@ let botonRegistros = document.getElementById("boton__registros");
 let botonImprimir = document.getElementById("boton__imprimir");
 let botonCerrar = document.getElementById("boton__cerrar");
 //elementos
-let panel = document.getElementById("aplicacion__panel__lista");
+let panel = document.getElementById("aplicacion__panel__lista__form");
 let pantallaTotal = document.getElementById("aplicacion__total");
 
 
@@ -35,12 +35,21 @@ function agregar(){
     productos.forEach((producto)=>{
         if (referencia.value==producto.codigo){
             carrito.push(producto)
-            panel.innerHTML += `<div class="aplicacion__panel__lista__item">${producto.nombre}, ${producto.precio}</div>`;
+            // panel.innerHTML += `<input type="checkbox" value="${producto.nombre}">`;
+            panel.innerHTML += 
+            `<div class = "cart">
+                <input type="checkbox">
+                <p>${producto.nombre}</p>
+            </div>`;
         }
     });
 }
 function menos(){
-    console.log("")
+    let carrito = document.getElementsByClassName("cart")
+    carrito.forEach((productos)=>{
+        console.log(productos)
+    });
+    console.log(selected)
 }
 
 
