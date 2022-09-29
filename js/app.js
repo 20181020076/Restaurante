@@ -1,9 +1,43 @@
 //arreglos
-let usuarios=[{u:"ramon",p:"1234",e:"admin"},{u:"empleado1",p:"456",e:"empleado"}];
-let productos=[{nombre:"empanada",precio:2000,codigo:1},{nombre:"pastel",precio:2500,codigo:2}];
+const productos = [
+    {
+        id: 1,
+        nombre: "empanada",
+        precio: 2500,
+    },
+    {
+        id: 2,
+        nombre: "pastel",
+        precio: 3000,
+    },
+    {
+        id: 3,
+        nombre: "papa",
+        precio: 3000,
+    },
+    {
+        id: 4,
+        nombre: "hamburguesa",
+        precio: 8900,
+    }
+]
+const usuarios = [
+    {
+        id: 1,
+        user: "ramon",
+        password: 1234,
+        estado :"admin",
+    },
+    {
+        id: 2,
+        user: "empleado",
+        password: 456,
+        estado: "empleado",
+    }
+]
 let carrito = [];
 let nombres = usuarios.map(function(user){
-    return user.u;
+    return user.user;
 });
 let nombresProductos = productos.map((producto)=>{return producto.nombre});
 //botones
@@ -33,23 +67,30 @@ botonCerrar.addEventListener("click",cerrar);
 function agregar(){
     let referencia = document.getElementById("codigo");
     productos.forEach((producto)=>{
-        if (referencia.value==producto.codigo){
-            carrito.push(producto)
-            // panel.innerHTML += `<input type="checkbox" value="${producto.nombre}">`;
-            panel.innerHTML += 
-            `<div class = "cart">
-                <input type="checkbox">
-                <p>${producto.nombre}</p>
-            </div>`;
+        if (referencia.value==producto.id){
+            if(carrito.includes(producto)){
+
+            }else{
+            carrito.push(producto);
+            panel.innerHTML += `<div id="${producto.nombre}"><input type="checkbox"><label>${producto.nombre}, ${producto.precio}</label></div>`;
+            }
+                // if(items[0]==producto){
+                //     carrito[1]++;
+                // }else{
+                //     carrito.push([producto,1])
+                //     panel.innerHTML += `<div id="${producto.nombre}"><input type="checkbox"><label>${producto.nombre}, ${producto.precio}</label></div>`;
+                // }
+            
         }
+        
     });
+    console.log(carrito);
+
+    imprimir();
 }
 function menos(){
-    let carrito = document.getElementsByClassName("cart")
-    carrito.forEach((productos)=>{
-        console.log(productos)
-    });
-    console.log(selected)
+    console.log( panel.elements)
+    imprimir();
 }
 
 
@@ -57,12 +98,11 @@ function limpiarPanel(){
     carrito = [];
     panel.innerHTML = `<div class="aplicacion__panel__lista></div>`;
     limpiarCampos();
+    imprimir();
 }
 function imprimir(){
-    let total = carrito.reduce((acc,producto)=>{
-        return acc = acc + producto.precio;
-    },0);
-    pantallaTotal.innerHTML = total; 
+    
+    pantallaTotal.innerHTML = carrito.reduce((acc,producto)=>acc+producto.precio,0)
 }
 function cerrar(){
     window.location.replace("/index.html");

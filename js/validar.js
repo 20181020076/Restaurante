@@ -1,4 +1,39 @@
-let usuarios=[{u:"ramon",p:"1234",e:"admin"},{u:"empleado1",p:"456",e:"empleado"}];
+const productos = [
+    {
+        id: 1,
+        nombre: "empanada",
+        precio: 2500,
+    },
+    {
+        id: 2,
+        nombre: "pastel",
+        precio: 3000,
+    },
+    {
+        id: 3,
+        nombre: "papa",
+        precio: 3000,
+    },
+    {
+        id: 4,
+        nombre: "hamburguesa",
+        precio: 8900,
+    }
+]
+const usuarios = [
+    {
+        id: 1,
+        user: "ramon",
+        password: 1234,
+        estado :"admin",
+    },
+    {
+        id: 2,
+        user: "empleado",
+        password: 456,
+        estado: "empleado",
+    }
+]
 let botonValidar = document.getElementById("boton__validar");
 
 botonValidar.addEventListener("click",validar);
@@ -9,8 +44,8 @@ function validar(){
     let estado = true;
     let contador = 0;
     for(let i = 0; i<usuarios.length; i++){
-        if(usuarios[i].u == user_digitado){
-            if(usuarios[i].p == password_digitado){
+        if(usuarios[i].user == user_digitado){
+            if(usuarios[i].password == password_digitado){
                 if(usuarios[i].e == "admin"){
                     window.location.replace("/pages/admin.html");
                 }else{
