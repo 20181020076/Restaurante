@@ -68,23 +68,26 @@ function agregar(){
     let referencia = document.getElementById("codigo");
     productos.forEach((producto)=>{
         if (referencia.value==producto.id){
-            if(carrito.includes(producto)){
-
-            }else{
             carrito.push(producto);
-            panel.innerHTML += `<div id="${producto.nombre}"><input type="checkbox"><label>${producto.nombre}, ${producto.precio}</label></div>`;
-            }
-                // if(items[0]==producto){
-                //     carrito[1]++;
-                // }else{
-                //     carrito.push([producto,1])
-                //     panel.innerHTML += `<div id="${producto.nombre}"><input type="checkbox"><label>${producto.nombre}, ${producto.precio}</label></div>`;
-                // }
             
         }
         
     });
-    console.log(carrito);
+    let carritoSinDuplicados = [...new Set(carrito)];
+    panel.innerHTML = "";
+    carritoSinDuplicados.forEach((item)=>{
+        const miItem = productos.filter((itemBasDatos)=>{
+            return itemBasDatos.id === parseInt(item.id);
+        })
+        const numeroUnidadesItem = carrito.reduce((total, itemId)=>{
+            return itemId === item ? total+=1: total;
+        },0);
+        
+
+        panel.innerHTML += `<div id="${miItem[0].nombre}"><input type="checkbox"><label>${miItem[0].nombre}, ${miItem[0].precio},Cantidad: ${numeroUnidadesItem}</label></div>`;
+
+    })
+    
 
     imprimir();
 }
@@ -102,7 +105,7 @@ function limpiarPanel(){
 }
 function imprimir(){
     
-    pantallaTotal.innerHTML = carrito.reduce((acc,producto)=>acc+producto.precio,0)
+    pantallaTotal.innerHTML = carrito.reduce((acc,producto)=>acc+producto.precio,0);
 }
 function cerrar(){
     window.location.replace("/index.html");

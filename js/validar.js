@@ -46,7 +46,7 @@ function validar(){
     for(let i = 0; i<usuarios.length; i++){
         if(usuarios[i].user == user_digitado){
             if(usuarios[i].password == password_digitado){
-                if(usuarios[i].e == "admin"){
+                if(usuarios[i].estado == "admin"){
                     window.location.replace("/pages/admin.html");
                 }else{
                     window.location.replace("/pages/empleado.html");
