@@ -84,7 +84,7 @@ function agregar(){
         },0);
         
 
-        panel.innerHTML += `<div id="${miItem[0].nombre}"><input type="checkbox"><label>${miItem[0].nombre}, ${miItem[0].precio},Cantidad: ${numeroUnidadesItem}</label></div>`;
+        panel.innerHTML += `<div id="${miItem[0].nombre}"><input type="checkbox"><label>${miItem[0].nombre}, ${miItem[0].precio},Cantidad: ${numeroUnidadesItem},Total: ${numeroUnidadesItem*miItem[0].precio}</label></div>`;
 
     })
     
