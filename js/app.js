@@ -47,7 +47,7 @@ let botonMenos = document.getElementById("boton__menos");
 let botonLimpiar = document.getElementById("boton__limpiar");
 let botonInventario = document.getElementById("boton__inventario");
 let botonRegistros = document.getElementById("boton__registros");
-let botonImprimir = document.getElementById("boton__imprimir");
+let botonConfirmar = document.getElementById("boton__imprimir");
 let botonCerrar = document.getElementById("boton__cerrar");
 //elementos
 let panel = document.getElementById("aplicacion__panel__lista__form");
@@ -59,7 +59,7 @@ let pantallaTotal = document.getElementById("aplicacion__total");
 botonAgregar.addEventListener("click",agregar);
 botonMenos.addEventListener("click",menos);
 botonLimpiar.addEventListener("click",limpiarPanel);
-botonImprimir.addEventListener("click",imprimir);
+botonConfirmar.addEventListener("click",confirmar);
 botonCerrar.addEventListener("click",cerrar);
 //funciones
 
@@ -92,13 +92,16 @@ function agregar(){
     imprimir();
 }
 function menos(){
-    console.log( panel.elements)
+    panel.forEach((elemt)=>{
+        console.log(elemt)
+    });
     imprimir();
 }
 
 
 function limpiarPanel(){
     carrito = [];
+
     panel.innerHTML = `<div class="aplicacion__panel__lista></div>`;
     limpiarCampos();
     imprimir();
@@ -114,4 +117,41 @@ function limpiarCampos(){
     document.getElementById("codigo").value = 1;
     pantallaTotal.innerHTML = 0;
 
+}
+function confirmar(){
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: '¿Estas seguro?',
+        text: "Se agregara el pedido",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, confirmar',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Agregado!',
+            'Tu pedido fue agregado exitosamente.',
+            'success'
+          )
+          limpiarPanel();
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Revisa tu pedido',
+            'error'
+          )
+        }
+      })
 }

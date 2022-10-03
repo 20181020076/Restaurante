@@ -1,25 +1,4 @@
-const productos = [
-    {
-        id: 1,
-        nombre: "empanada",
-        precio: 2500,
-    },
-    {
-        id: 2,
-        nombre: "pastel",
-        precio: 3000,
-    },
-    {
-        id: 3,
-        nombre: "papa",
-        precio: 3000,
-    },
-    {
-        id: 4,
-        nombre: "hamburguesa",
-        precio: 8900,
-    }
-]
+
 const usuarios = [
     {
         id: 1,
@@ -48,8 +27,11 @@ function validar(){
             if(usuarios[i].password == password_digitado){
                 if(usuarios[i].estado == "admin"){
                     window.location.replace("/pages/admin.html");
+                    
+                    
                 }else{
                     window.location.replace("/pages/empleado.html");
+    
                 }
                 
             }else{
@@ -60,7 +42,12 @@ function validar(){
         }
     }
     if(estado==false || contador == usuarios.length){
-        alert("corrija el usuario o la contraseña");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Usuario o Contraseña incorrecta',
+          })
+        
     }
     
     
