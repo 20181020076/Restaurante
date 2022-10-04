@@ -36,6 +36,7 @@ const usuarios = [
     }
 ]
 let carrito = [];
+let carritoSinDuplicados = [...new Set(carrito)];
 let nombres = usuarios.map(function(user){
     return user.user;
 });
@@ -73,7 +74,7 @@ function agregar(){
         }
         
     });
-    let carritoSinDuplicados = [...new Set(carrito)];
+    carritoSinDuplicados = [...new Set(carrito)];
     panel.innerHTML = "";
     carritoSinDuplicados.forEach((item)=>{
         const miItem = productos.filter((itemBasDatos)=>{
@@ -84,7 +85,7 @@ function agregar(){
         },0);
         
 
-        panel.innerHTML += `<div id="${miItem[0].nombre}"><input type="checkbox"><label>${miItem[0].nombre}, ${miItem[0].precio},Cantidad: ${numeroUnidadesItem},Total: ${numeroUnidadesItem*miItem[0].precio}</label></div>`;
+        panel.innerHTML += `<div id="${miItem[0].nombre}"><input type="checkbox" id="check__${miItem[0].nombre}"><label>${miItem[0].nombre}, ${miItem[0].precio},Cantidad: ${numeroUnidadesItem},Total: ${numeroUnidadesItem*miItem[0].precio}</label></div>`;
 
     })
     
@@ -92,10 +93,16 @@ function agregar(){
     imprimir();
 }
 function menos(){
-    panel.forEach((elemt)=>{
-        console.log(elemt)
+    carritoSinDuplicados.forEach((item)=>{
+        if(document.querySelector(`#${item.nombre}`).children[0].checked){
+           carrito =  carrito.filter((e)=>e !== item);
+            carritoSinDuplicados = [...new Set(carrito)];
+            document.querySelector(`#${item.nombre}`).remove(`#check__${item.nombre}`);
+            
+            imprimir();
+        }
     });
-    imprimir();
+
 }
 
 
