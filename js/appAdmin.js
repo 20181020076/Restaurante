@@ -4,8 +4,8 @@ botonRegistros.addEventListener("click",registros);
 
 function inventario(){
     Swal.fire({
-        title: 'Custom animation with Animate.css',
-        text: 'Su inventario es' + nombresProductos,
+        title: 'Inventario',
+        text: 'Su inventario es: ' + nombresProductos,
         showClass: {
           popup: 'animate__animated animate__fadeInDown'
         },
