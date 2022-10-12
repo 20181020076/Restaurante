@@ -1,26 +1,17 @@
 //arreglos
-const productos = [
-    {
-        id: 1,
-        nombre: "empanada",
-        precio: 2500,
-    },
-    {
-        id: 2,
-        nombre: "pastel",
-        precio: 3000,
-    },
-    {
-        id: 3,
-        nombre: "papa",
-        precio: 3000,
-    },
-    {
-        id: 4,
-        nombre: "hamburguesa",
-        precio: 8900,
-    }
-]
+async function fetchProductos(){
+    const response = await fetch('/data/productos.json')
+    return await response.json()
+}
+
+
+fetchProductos().then(producto => {
+    productos = producto;
+
+})
+let productos = []
+console.log(productos)
+
 const usuarios = [
     {
         id: 1,
