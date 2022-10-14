@@ -1,18 +1,17 @@
 
-const usuarios = [
-    {
-        id: 1,
-        user: "ramon",
-        password: 1234,
-        estado :"admin",
-    },
-    {
-        id: 2,
-        user: "empleado",
-        password: 456,
-        estado: "empleado",
-    }
-]
+let usuarios = []
+
+async function fetchUsuarios(){
+    const response = await fetch('/data/usuarios.json')
+    return await response.json()
+}
+
+
+fetchUsuarios().then(usuario => {
+    usuarios = usuario;
+
+})
+
 let botonValidar = document.getElementById("boton__validar");
 
 botonValidar.addEventListener("click",validar);

@@ -1,4 +1,5 @@
 //arreglos
+let productos = []
 async function fetchProductos(){
     const response = await fetch('/data/productos.json')
     return await response.json()
@@ -9,23 +10,20 @@ fetchProductos().then(producto => {
     productos = producto;
 
 })
-let productos = []
-console.log(productos)
+let usuarios = []
 
-const usuarios = [
-    {
-        id: 1,
-        user: "ramon",
-        password: 1234,
-        estado :"admin",
-    },
-    {
-        id: 2,
-        user: "empleado",
-        password: 456,
-        estado: "empleado",
-    }
-]
+async function fetchUsuarios(){
+    const response2 = await fetch('/data/usuarios.json')
+    return await response2.json()
+}
+
+
+fetchUsuarios().then(usuario => {
+    usuarios = usuario;
+
+})
+
+
 let carrito = [];
 let carritoSinDuplicados = [...new Set(carrito)];
 let nombres = usuarios.map(function(user){
