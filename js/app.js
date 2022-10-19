@@ -29,7 +29,7 @@ let carritoSinDuplicados = [...new Set(carrito)];
 let nombres = usuarios.map(function(user){
     return user.user;
 });
-let nombresProductos = productos.map((producto)=>{return producto.nombre});
+
 //botones
 
 let botonAgregar = document.getElementById("boton__agregar");
@@ -133,6 +133,21 @@ function confirmar(){
         reverseButtons: true
       }).then((result) => {
         if (result.isConfirmed) {
+          fetch('https://jsonplaceholder.typicode.com/posts',{
+            method:"POST",
+            headers: {"Content-type": "application/json"},
+            body:JSON.stringify({
+                fecha: `${new Date(Date.now()).toLocaleString()}/`,
+                venta: carrito,
+                total: parseInt(pantallaTotal.innerHTML)
+            })
+          }).then(function(response) {
+            return response.json();
+          }).then(function(text) {
+            console.log(text)
+          } ).catch(err=>{
+            console.log("error")
+          })
           swalWithBootstrapButtons.fire(
             'Agregado!',
             'Tu pedido fue agregado exitosamente.',
